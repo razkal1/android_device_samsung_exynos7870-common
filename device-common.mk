@@ -83,6 +83,9 @@ PRODUCT_PACKAGES += \
     libsecril-client \
     libsecril-client-sap \
     modemloader \
+    rild \
+    libreference-ril \
+    libril \
     android.hardware.radio@1.0 \
     android.hardware.radio.deprecated@1.0 \
 
@@ -176,6 +179,7 @@ PRODUCT_PACKAGES += \
 # SamsungDoze
 PRODUCT_PACKAGES += \
     SamsungDoze
+
 #ADB
 ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.adb.secure=0 \
