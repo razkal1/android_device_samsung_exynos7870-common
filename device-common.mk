@@ -69,7 +69,12 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += \
     libion \
-    libfimg
+    libfimg \
+    libhwc2on1adapter \
+    android.hardware.graphics.allocator@2.0-impl \
+    android.hardware.graphics.allocator@2.0-service \
+    android.hardware.graphics.composer@2.1-impl \
+    android.hardware.graphics.mapper@2.0-impl
 
 # Radio
 PRODUCT_PACKAGES += \
@@ -77,10 +82,19 @@ PRODUCT_PACKAGES += \
     libprotobuf-cpp-full \
     libsecril-client \
     libsecril-client-sap \
-    modemloader
+    modemloader \
+    android.hardware.radio@1.0 \
+    android.hardware.radio.deprecated@1.0 \
 
 PRODUCT_PACKAGES += \
     SamsungServiceMode
+
+#Camera
+ PRODUCT_PACKAGES += \
+    libcamhelpr \
+    camera.device@3.2-impl \
+    camera.device@1.0-impl \
+    android.hardware.camera.provider@2.4-impl
 
 # IPv6
 PRODUCT_PACKAGES += \
@@ -94,7 +108,18 @@ PRODUCT_PACKAGES += \
     audio.a2dp.default \
     audio.usb.default \
     audio.r_submix.default \
-    libtinycompress
+    libtinycompress \
+    android.hardware.audio@2.0-impl \
+    android.hardware.audio.effect@2.0-impl
+
+# Memory
+PRODUCT_PACKAGES += \
+    android.hardware.memtrack@1.0-impl 
+
+# Bluetooth
+PRODUCT_PACKAGES += \
+    android.hardware.bluetooth@1.0-impl \
+    libbt-vendor
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -112,6 +137,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gps/gps.cfg:system/etc/gps.cfg \
     $(LOCAL_PATH)/configs/gps/gps.conf:system/etc/gps.conf \
+    android.hardware.gnss@1.0-impl
+
+# Keymaster
+PRODUCT_PACKAGES += \
+    android.hardware.keymaster@3.0-impl
 
 # Keys
 PRODUCT_COPY_FILES += \
@@ -126,7 +156,13 @@ PRODUCT_COPY_FILES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    power.universal7870
+    power.universal7870 \
+    android.hardware.power@1.0-impl
+
+# Sensors
+PRODUCT_PACKAGES += \
+    android.hardware.sensors@1.0-impl \
+    android.hardware.vibrator@1.0-impl
 
 # Root
 PRODUCT_PACKAGES += \

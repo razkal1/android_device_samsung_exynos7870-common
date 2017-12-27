@@ -40,6 +40,9 @@ TARGET_CPU_CORTEX_A53 := true
 # Binder
 TARGET_USES_64_BIT_BINDER := false
 
+# ADB Legacy Interface
+TARGET_USES_LEGACY_ADB_INTERFACE := true
+
 # Extracted with libbootimg
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_IMAGE_NAME := Image
@@ -51,7 +54,7 @@ TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/aarch64/aarch64-linux-android-4.9/bin
-TARGET_USES_UNCOMPRESSED_KERNEL := true
+BOARD_KERNEL_IMAGE_NAME := Image
 
 # Kernel config
 BOARD_CUSTOM_BOOTIMG_MK := hardware/samsung/mkbootimg.mk
@@ -66,8 +69,14 @@ TARGET_AUDIOHAL_VARIANT := samsung
 TARGET_POWERHAL_VARIANT := samsung
 
 # Samsung Hardware
-BOARD_HARDWARE_CLASS := $(LOCAL_PATH)/cmhw
-BOARD_HARDWARE_CLASS := hardware/samsung/cmhw
+BOARD_HARDWARE_CLASS += device/samsung/exynos7870-common/lineagehw
+BOARD_HARDWARE_CLASS += hardware/samsung/lineagehw
+
+# Gralloc
+TARGET_USES_GRALLOC1_ADAPTER := true
+
+# ION
+TARGET_USES_ION := true
 
 # Samsung Camera
 BOARD_USE_SAMSUNG_CAMERAFORMAT_NV21 := true
@@ -105,10 +114,14 @@ TARGET_OMX_LEGACY_RESCALING := true
 BOARD_HAVE_SAMSUNG_WIFI := true
 
 # Charger
+WITH_LINEAGE_CHARGER := false
 BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/power_supply/battery/batt_lp_charging
 BOARD_CHARGER_ENABLE_SUSPEND := true
 BOARD_CHARGER_SHOW_PERCENTAGE := true
 CHARGING_ENABLED_PATH := /sys/class/power_supply/battery/batt_lp_charging
+
+#Hidl
+DEVICE_MANIFEST_FILE := device/samsung/exynos7870-common/manifest.xml
 
 #Recovery
 BOARD_HAS_DOWNLOAD_MODE := true
@@ -117,9 +130,6 @@ TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/ramdisk/fstab.samsungexynos7870
 # RIL
 BOARD_VENDOR := samsung
 BOARD_MODEM_TYPE := ss333
-
-# RIL.java overwrite
-BOARD_RIL_CLASS := ../../../$(LOCAL_PATH)/ril
 
 # Release tools
 TARGET_RELEASETOOLS_EXTENSIONS := $(LOCAL_PATH)
