@@ -74,8 +74,6 @@
 
 /data/misc/radio(/.*)?       u:object_r:radio_data_file:s0
 
-/system/bin/wcnss_filter     u:object_r:start_hci_filter_exec:s0
-
 # biometrics
 /data/biometrics(/.*)?	     u:object_r:biometrics_data_file:s0
 
