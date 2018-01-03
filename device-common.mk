@@ -142,8 +142,8 @@ PRODUCT_PACKAGES += \
     cm_charger_res_images
 
 # SamsungDoze
-#PRODUCT_PACKAGES += \
- #   SamsungDoze
+PRODUCT_PACKAGES += \
+    SamsungDoze
 #ADB
 ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.adb.secure=0 \
