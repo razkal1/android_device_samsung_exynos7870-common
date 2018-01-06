@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/samsung/exynos7870-common
-
-# inherit the splitted configs
--include $(LOCAL_PATH)/board/*.mk
+# Offmode charger
+PRODUCT_PACKAGES += \
+    charger_res_images \
+    cm_charger_res_images

@@ -14,7 +14,6 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/samsung/exynos7870-common
-
-# inherit the splitted configs
--include $(LOCAL_PATH)/board/*.mk
+# SamsungDoze
+PRODUCT_PACKAGES += \
+    SamsungDoze

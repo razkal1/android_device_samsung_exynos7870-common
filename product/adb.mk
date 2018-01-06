@@ -14,7 +14,9 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/samsung/exynos7870-common
-
-# inherit the splitted configs
--include $(LOCAL_PATH)/board/*.mk
+#ADB
+ADDITIONAL_DEFAULT_PROPERTIES += \
+    ro.adb.secure=0 \
+    ro.secure=0 \
+    ro.debuggable=1 \
+    persist.service.adb.enable=1

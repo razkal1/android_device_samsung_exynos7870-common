@@ -14,7 +14,8 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/samsung/exynos7870-common
-
-# inherit the splitted configs
--include $(LOCAL_PATH)/board/*.mk
+# Touchscreen
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/idc/AVRCP.idc:system/usr/idc/AVRCP.idc \
+    $(LOCAL_PATH)/configs/idc/qwerty.idc:system/usr/idc/qwerty.idc \
+    $(LOCAL_PATH)/configs/idc/qwerty2.idc:system/usr/idc/qwerty2.idc
