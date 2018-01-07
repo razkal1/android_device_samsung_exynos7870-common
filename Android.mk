@@ -15,7 +15,7 @@
 #
 
 LOCAL_PATH := $(call my-dir)
-
+SAM_ROOT := hardware/samsung
 ifneq ($(filter on7xelte j7xelte j7velte j7y17lte a3y17lte, $(TARGET_DEVICE)),)
 
 include $(call all-makefiles-under,$(LOCAL_PATH))
