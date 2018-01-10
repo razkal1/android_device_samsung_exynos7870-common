@@ -79,6 +79,7 @@ PRODUCT_PACKAGES += \
 # Radio
 PRODUCT_PACKAGES += \
     libxml2 \
+    libprotobuf-cpp-fl26 \
     libprotobuf-cpp-full \
     libsecril-client \
     libsecril-client-sap \

@@ -12,6 +12,10 @@
         "target_path": "hardware/samsung_slsi-cm/exynos5"
     },
     {
+        "repository": "Exynos7870/android_external_protobuf-compat-2.6",
+        "target_path": "external/protobuf-compat-2.6"
+    },
+    {
         "repository": "android_hardware_samsung_slsi-cm_openmax",
         "target_path": "hardware/samsung_slsi-cm/openmax"
     }
