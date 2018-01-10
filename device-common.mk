@@ -114,6 +114,7 @@ PRODUCT_PACKAGES += \
     audio.r_submix.default \
     libtinycompress \
     android.hardware.audio@2.0-impl \
+    android.hardware.audio@2.0-service \
     android.hardware.audio.effect@2.0-impl
 
 # Memory
@@ -148,6 +149,14 @@ PRODUCT_PACKAGES += \
 # Keymaster
 PRODUCT_PACKAGES += \
     android.hardware.keymaster@3.0-impl
+
+# RenderScript HAL
+PRODUCT_PACKAGES += \
+	android.hardware.renderscript@1.0-impl
+
+# DRM
+PRODUCT_PACKAGES += \
+	android.hardware.drm@1.0-impl
 
 # Keys
 PRODUCT_COPY_FILES += \
