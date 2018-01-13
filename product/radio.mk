@@ -22,7 +22,7 @@ PRODUCT_PACKAGES += \
     libsecril-client-sap \
     modemloader \
     android.hardware.radio@1.0 \
-    android.hardware.radio.deprecated@1.0 \
+    android.hardware.radio.deprecated@1.0
 
 # IPv6
 PRODUCT_PACKAGES += \
