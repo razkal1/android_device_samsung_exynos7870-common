@@ -16,7 +16,5 @@
 
 # RIL
 BOARD_VENDOR := samsung
-BOARD_MODEM_TYPE := tss310
-
-# RIL.java overwrite
-BOARD_RIL_CLASS := ../../../$(LOCAL_PATH)/ril
+BOARD_MODEM_TYPE := ss333
+BOARD_PROVIDES_LIBRIL := true

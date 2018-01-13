@@ -34,3 +34,6 @@ TARGET_CPU_CORTEX_A53 := true
 
 # Binder
 TARGET_USES_64_BIT_BINDER := false
+
+# ADB Legacy Interface
+TARGET_USES_LEGACY_ADB_INTERFACE := true

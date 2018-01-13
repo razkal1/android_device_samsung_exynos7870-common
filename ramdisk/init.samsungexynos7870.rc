@@ -12,7 +12,7 @@ on early-init
     mount debugfs /sys/kernel/debug /sys/kernel/debug
 
 on init
-    export LD_SHIM_LIBS "/system/lib/libbauthserver.so|/system/lib/libbauthtzcommon_shim.so"
+    export LD_SHIM_LIBS "/system/lib/libbauthserver.so|/system/lib/libbauthtzcommon_shim.so:/system/lib/libexynoscamera.so|/system/vendor/lib/libcamhelpr.so"
 
     mkdir /preload 0771 system system
 
@@ -22,8 +22,16 @@ on init
 
     # Support legacy paths
     symlink /sdcard /mnt/sdcard
-
+    symlink /sdcard /storage/sdcard0
+    symlink /sdcard1 /storage/sdcard1
+    symlink /sdcard1 /mnt/extSdCard
+    symlink /sdcard1 /mnt/sdcard1
+    symlink /sdcard1 /external_sd
+    symlink /storage/usbdisk /mnt/usbdisk
+ 
     export EXTERNAL_STORAGE /sdcard
+    export SECONDARY_STORAGE /storage/extSdCard
+
     symlink /data/app /factory
     symlink /dev/block/platform/13540000.dwmmc0/by-name/PERSISTENT /dev/block/persistent
     symlink /dev/block/platform/13540000.dwmmc0/by-name/STEADY /dev/block/steady
@@ -66,6 +74,7 @@ on post-fs-data
     restorecon /sys/kernel/debug/tracing/trace_marker
 
 on boot
+
     # override init.rc to keep plenty of large order chunks around
     # to improve allocation times
 #    write /proc/sys/vm/min_free_kbytes 32768
@@ -210,8 +219,8 @@ on boot
 
 # permissions for bluetooth.
     setprop ro.bt.bdaddr_path "/efs/bluetooth/bt_addr"
-    chown bluetooth net_bt_stack ro.bt.bdaddr_path
-    chown radio net_bt_stack /efs/bluetooth/bt_addr
+    chown bluetooth bluetooth ro.bt.bdaddr_path
+    chown radio bluetooth /efs/bluetooth/bt_addr
     chmod 0640 /efs/bluetooth/bt_addr
     chmod 0660 /sys/class/rfkill/rfkill0/state
     chmod 0660 /sys/class/rfkill/rfkill0/device/extldo
@@ -775,9 +784,8 @@ on property:ro.bootmode=charger
     check_fs /dev/block/platform/13540000.dwmmc0/by-name/EFS ext4
     mount ext4 /dev/block/platform/13540000.dwmmc0/by-name/EFS /efs nosuid nodev noatime noauto_da_alloc,discard,journal_async_commit
 
-service battery_charger /sbin/healthd -c
+service charger /charger
     class charger
-    critical
     seclabel u:r:healthd:s0
 
 # SecEDS
@@ -839,11 +847,11 @@ service prepare_param /system/bin/prepare_param.sh /dev/block/platform/13540000.
     oneshot
 
 # GPS
-service gpsd /system/bin/gpsd
-    class main
-    user gps
-    group system inet wakelock
-    ioprio be 0
+#service gpsd /system/bin/gpsd
+#    class main
+#    user gps
+#    group system inet wakelock
+#    ioprio be 0
 
 # Secure Storage startup
 service secure_storage /system/bin/secure_storage_daemon
