@@ -20,8 +20,11 @@ PRODUCT_PACKAGES += \
     libprotobuf-cpp-full \
     libsecril-client \
     libsecril-client-sap \
+    libreference-ril \
     modemloader \
     android.hardware.radio@1.0 \
+    rild \
+    libril \
     android.hardware.radio.deprecated@1.0
 
 # IPv6
@@ -29,3 +32,7 @@ PRODUCT_PACKAGES += \
     ebtables \
     ethertypes \
     libebtc
+
+# Network
+PRODUCT_PACKAGES += \
+	netutils-wrapper-1.0
