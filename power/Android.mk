@@ -15,6 +15,9 @@
 #
 
 LOCAL_PATH := $(call my-dir)
+
+ifneq ($(filter exynos7870, $(TARGET_POWERHAL_VARIANT)),)
+
 include $(CLEAR_VARS)
 
 LOCAL_C_INCLUDES := \
@@ -35,3 +38,5 @@ LOCAL_SHARED_LIBRARIES := \
 	libcutils
 
 include $(BUILD_SHARED_LIBRARY)
+
+endif
